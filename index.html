@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medley Stories Brand Identity Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'NotoSerifSC';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'NotoSerifSC-Regular';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'MiSans';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/MiSans-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'MiSans-Medium';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/MiSans-Medium.ttf') format('truetype');
+            font-weight: 500;
+        }
+
+        :root {
+            --primary-green: #2C5F2D;
+            --sage-green: #97BC62;
+            --mystic-purple: #6B4C9A;
+            --deep-purple: #4A306D;
+            --zen-gold: #D4AF37;
+            --bg-color: #F9F7F2;
+            --text-dark: #1A1A1A;
+            --text-grey: #595959;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            font-family: 'MiSans', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 1080px;
+            background-image: url('https://a.lovart.ai/artifacts/agent/Qbv5OTU0X67fprTm.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 120px 100px 120px;
+            width: 100%;
+            color: #fff;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: end;
+        }
+
+        .hero-title-group h1 {
+            font-family: 'NotoSerifSC', serif;
+            font-size: 96px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .hero-title-group h2 {
+            font-family: 'MiSans', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--sage-green);
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 32px;
+        }
+
+        .meta-item h4 {
+            font-family: 'MiSans-Medium', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+        }
+
+        .meta-item p {
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 160px;
+        }
+
+        /* Section Styling */
+        .section-header {
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid #DCDCDC;
+            padding-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'NotoSerifSC', serif;
+            font-size: 64px;
+            color: var(--primary-green);
+        }
+
+        .section-desc {
+            font-family: 'MiSans', sans-serif;
+            font-size: 20px;
+            color: var(--text-grey);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Grid Layouts */
+        .grid-process {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 40px;
+        }
+
+        .card-tag {
+            font-family: 'MiSans-Medium';
+            font-size: 14px;
+            color: var(--mystic-purple);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .card-title {
+            font-family: 'NotoSerifSC', serif;
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .card-text {
+            font-size: 18px;
+            color: var(--text-grey);
+            line-height: 1.6;
+        }
+
+        /* Specific Process Layouts */
+        .grid-item-large {
+            grid-column: span 8;
+        }
+        
+        .grid-item-medium {
+            grid-column: span 6;
+        }
+
+        .grid-item-small {
+            grid-column: span 4;
+        }
+
+        /* Color Palette & Typography Display */
+        .brand-system {
+            grid-column: span 12;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .color-palette {
+            background: #fff;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .swatch {
+            height: 120px;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #fff;
+            font-family: 'MiSans-Medium';
+        }
+
+        .swatch.dark { color: #fff; }
+        .swatch.light { color: var(--text-dark); border: 1px solid #eee; }
+
+        .type-specimen {
+            background: #fff;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .type-demo h1 {
+            font-family: 'NotoSerifSC', serif;
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+        
+        .type-demo p {
+            font-family: 'MiSans', sans-serif;
+            font-size: 18px;
+            color: var(--text-grey);
+            line-height: 1.6;
+        }
+
+        /* Final Deliverables */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            align-items: start;
+        }
+
+        .showcase-main {
+            grid-column: span 2;
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .showcase-main img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            padding: 30px 50px;
+            border-radius: 16px;
+            max-width: 600px;
+        }
+
+        .logo-guidelines {
+            grid-column: span 2;
+            background: #fff;
+            padding: 60px;
+            border-radius: 24px;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .logo-display {
+            text-align: center;
+        }
+        
+        .logo-display i {
+            font-size: 80px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .logo-text {
+            font-family: 'NotoSerifSC', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .clear-space-box {
+            border: 1px dashed var(--sage-green);
+            padding: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .clear-space-marker {
+            position: absolute;
+            font-size: 12px;
+            color: var(--text-grey);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: #fff;
+            padding: 80px 120px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'NotoSerifSC', serif;
+            font-size: 24px;
+        }
+
+        .footer-info {
+            text-align: right;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        /* Utilities */
+        .w-full { width: 100%; }
+        .h-full { height: 100%; }
+        
+        .label {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-title-group">
+                <h2>Brand Identity Design 2025</h2>
+                <h1>Medley Stories:<br>Zen-Inspired Aroma Incense</h1>
+                <p style="font-size: 24px; opacity: 0.9; font-weight: 300;">Creative Evolution from Sketch to Story</p>
+            </div>
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <h4>Client</h4>
+                    <p>Medley Stories</p>
+                </div>
+                <div class="meta-item">
+                    <h4>Role</h4>
+                    <p>Art Director - Keith Leung</p>
+                </div>
+                <div class="meta-item">
+                    <h4>Date</h4>
+                    <p>Q4 2025</p>
+                </div>
+                <div class="meta-item">
+                    <h4>Copyright</h4>
+                    <p>© Yook Design Limited</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- PROCESS SECTION -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">The Creative Process</h2>
+                <p class="section-desc">
+                    From initial meditation concepts to cosmic storytelling. The journey began with simple hand-drawn sketches exploring the themes of zen, time, and inner peace.
+                </p>
+            </div>
+
+            <div class="grid-process">
+                <!-- Row 1 -->
+                <div class="card grid-item-medium" style="background-color: #FDFCF8;">
+                    <div style="position: relative;">
+                        <span class="label">Initial Sketches</span>
+                        <img src="https://a.lovart.ai/artifacts/user/ctFQXx0mBsEI0KBn.png" alt="Duck Sketches" class="card-image" style="height: 600px; object-fit: contain; padding: 40px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Concept Phase 01</span>
+                        <h3 class="card-title">Meditating Character Study</h3>
+                        <p class="card-text">Early exploration of the "Zen State" using animal avatars. The duck sketches focused on posture, the lotus position, and integrating the 'Om' symbol naturally into the character design.</p>
+                    </div>
+                </div>
+
+                <div class="card grid-item-medium" style="background-color: #F4F8F4;">
+                    <div style="position: relative;">
+                        <span class="label">Character Evolution</span>
+                        <img src="https://a.lovart.ai/artifacts/user/ArnOZTaic7Pobn5D.png" alt="Frog Development" class="card-image" style="height: 600px; object-fit: contain; padding: 40px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Concept Phase 02</span>
+                        <h3 class="card-title">The Cosmic Frog</h3>
+                        <p class="card-text">Transitioning to a frog character to symbolize transformation. Adding elements like the "Time Cape" and "Crystal Crown" to introduce the sci-fi/cosmic narrative layer to the brand story.</p>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="card grid-item-large" style="background-color: #F9F7F2;">
+                    <div style="position: relative;">
+                        <span class="label">Pose Exploration</span>
+                        <img src="https://a.lovart.ai/artifacts/user/K1qIo2q37aobQzYG.png" alt="Character Poses" class="card-image" style="height: 500px; object-fit: contain; padding: 40px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Character System</span>
+                        <h3 class="card-title">Versatility & Expression</h3>
+                        <p class="card-text">Developing a range of poses to ensure the mascot works across various touchpoints—from serious meditation to playful interaction. Note the "Star/Atom" logo integration on the t-shirt.</p>
+                    </div>
+                </div>
+
+                <div class="card grid-item-small" style="background-color: #FFF;">
+                    <div style="position: relative;">
+                         <span class="label">Concept Element</span>
+                         <img src="https://a.lovart.ai/artifacts/user/PemzHxSgObPFCAUN.png" alt="Cosmic Drum" class="card-image" style="height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Visual Prop</span>
+                        <h3 class="card-title">The Time Drum</h3>
+                        <p class="card-text">A key brand artifact representing the rhythm of meditation and the portal to inner stories.</p>
+                    </div>
+                </div>
+
+                <!-- Brand System -->
+                <div class="brand-system">
+                    <div class="color-palette">
+                        <span class="card-tag">Visual Identity</span>
+                        <h3 class="card-title">Color System</h3>
+                        <p class="card-text">A palette grounded in nature but elevated with cosmic spirituality.</p>
+                        
+                        <div class="color-grid">
+                            <div class="swatch dark" style="background-color: #2C5F2D;">
+                                <span>Forest Zen</span>
+                                <span>#2C5F2D</span>
+                            </div>
+                            <div class="swatch light" style="background-color: #97BC62;">
+                                <span>Sage Light</span>
+                                <span>#97BC62</span>
+                            </div>
+                            <div class="swatch dark" style="background-color: #6B4C9A;">
+                                <span>Mystic Purple</span>
+                                <span>#6B4C9A</span>
+                            </div>
+                            <div class="swatch dark" style="background-color: #D4AF37;">
+                                <span>Portal Gold</span>
+                                <span>#D4AF37</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="type-specimen">
+                        <span class="card-tag">Typography</span>
+                        <h3 class="card-title">Font Hierarchy</h3>
+                        <div style="margin-top: 40px; border-left: 4px solid var(--primary-green); padding-left: 32px;">
+                            <div class="type-demo" style="margin-bottom: 40px;">
+                                <span style="font-family: 'MiSans-Medium'; color: var(--sage-green); text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Headline Font</span>
+                                <h1 style="font-family: 'NotoSerifSC'; margin-top: 8px;">Medley Stories</h1>
+                                <p style="font-family: 'NotoSerifSC-Regular'; opacity: 0.7;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0123456789</p>
+                            </div>
+                            <div class="type-demo">
+                                <span style="font-family: 'MiSans-Medium'; color: var(--sage-green); text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Body Font</span>
+                                <p style="font-family: 'MiSans'; font-size: 24px; color: var(--text-dark); margin-top: 8px;">Find your inner universe.</p>
+                                <p style="font-family: 'MiSans'; opacity: 0.7; font-size: 16px; margin-top: 8px;">Designed for maximum readability across digital and physical mediums. Clean, modern, and unassuming.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL DELIVERABLES SECTION -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Final Deliverables</h2>
+                <p class="section-desc">
+                    The finalized 3D brand assets ready for packaging and digital campaigns. The mascot "Zen Frog" serves as the brand ambassador, bridging the gap between traditional incense culture and modern digital storytelling.
+                </p>
+            </div>
+
+            <div class="showcase-grid">
+                <!-- Hero Showcase -->
+                <div class="showcase-main">
+                    <img src="https://a.lovart.ai/artifacts/user/TrkD9HSKN3g7rP64.png" alt="Final Purple Frog Render">
+                    <div class="showcase-overlay">
+                        <h3 style="font-family: 'NotoSerifSC'; font-size: 32px; margin-bottom: 8px;">The Master Meditator</h3>
+                        <p style="font-family: 'MiSans'; font-size: 16px; color: #444;">Final high-fidelity render featuring material textures (velvet cape, crystal crown) that convey premium quality.</p>
+                    </div>
+                </div>
+
+                <!-- Secondary Applications -->
+                <div class="card" style="grid-column: span 1; height: 100%;">
+                    <div style="position: relative; height: 500px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <span class="label">Product Mascot</span>
+                        <img src="https://a.lovart.ai/artifacts/user/KqejAcPKM2JwPGJX.png" alt="Yellow Frog Render" style="height: 90%; width: auto; object-fit: contain;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Retail Application</h3>
+                        <p class="card-text">The "Daylight" variant of the character, designed for morning blend incense packaging. The yellow skin tone represents energy and awakening.</p>
+                    </div>
+                </div>
+
+                <div class="card" style="grid-column: span 1; height: 100%; background: linear-gradient(135deg, #2C5F2D 0%, #1a3c1b 100%); color: #fff;">
+                    <div class="card-content" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                        <span class="card-tag" style="color: #97BC62;">Brand Message</span>
+                        <h3 class="card-title" style="color: #fff; font-size: 40px; line-height: 1.3;">"Time is not linear.<br>It is a story we tell ourselves."</h3>
+                        <p class="card-text" style="color: rgba(255,255,255,0.8); margin-top: 24px;">Medley Stories invites users to pause time through scent. Each aroma is a key to a different memory or "story portal".</p>
+                        <div style="margin-top: 40px; display: flex; gap: 20px;">
+                            <i class="ri-leaf-line" style="font-size: 32px; color: #D4AF37;"></i>
+                            <i class="ri-moon-line" style="font-size: 32px; color: #D4AF37;"></i>
+                            <i class="ri-magic-line" style="font-size: 32px; color: #D4AF37;"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logo Guidelines Box -->
+                <div class="logo-guidelines">
+                    <div class="logo-display">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--primary-green); margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center;">
+                            <i class="ri-star-line" style="font-size: 48px; color: var(--primary-green);"></i>
+                        </div>
+                        <div class="logo-text">MEDLEY</div>
+                        <div style="font-family: 'MiSans'; letter-spacing: 4px; font-size: 14px; margin-top: 4px; color: var(--primary-green);">STORIES</div>
+                        <p style="margin-top: 16px; font-size: 14px; color: #888;">Primary Vertical Lockup</p>
+                    </div>
+
+                    <div class="logo-display">
+                        <div style="display: flex; align-items: center; gap: 16px; justify-content: center; margin-bottom: 20px;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-green); display: flex; align-items: center; justify-content: center;">
+                                <i class="ri-star-line" style="font-size: 24px; color: var(--primary-green);"></i>
+                            </div>
+                            <div>
+                                <div class="logo-text" style="font-size: 24px;">MEDLEY STORIES</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 16px; font-size: 14px; color: #888;">Horizontal Lockup</p>
+                    </div>
+
+                    <div class="logo-display">
+                         <div class="clear-space-box">
+                             <div class="logo-text" style="font-size: 24px;">M</div>
+                             <span class="clear-space-marker" style="top: 10px; left: 50%; transform: translateX(-50%);">x</span>
+                             <span class="clear-space-marker" style="bottom: 10px; left: 50%; transform: translateX(-50%);">x</span>
+                             <span class="clear-space-marker" style="left: 10px; top: 50%; transform: translateY(-50%);">x</span>
+                             <span class="clear-space-marker" style="right: 10px; top: 50%; transform: translateY(-50%);">x</span>
+                         </div>
+                         <p style="margin-top: 16px; font-size: 14px; color: #888;">Clear Space (x = Height of M)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <div>
+            <div class="footer-logo">Medley Stories</div>
+            <div style="margin-top: 8px; font-size: 14px; opacity: 0.6;">Brand Identity Portfolio</div>
+        </div>
+        <div class="footer-info">
+            <p>Designed by Keith Leung</p>
+            <p>© Yook Design Limited 2025. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
