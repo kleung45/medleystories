@@ -112,10 +112,28 @@
     z-index: 1;
     will-change: transform;
   }
-  .hero-stars {
+  .hero-video {
     position: absolute;
     inset: 0;
     z-index: 2;
+    overflow: hidden;
+  }
+  .hero-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(5, 5, 15, 0.3) 0%, rgba(5, 5, 15, 0.55) 100%);
+  }
+  .hero-stars {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
     background-image:
       radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.9), transparent 50%),
       radial-gradient(1px 1px at 70px 110px, rgba(255,255,255,0.6), transparent 50%),
@@ -135,13 +153,13 @@
       radial-gradient(ellipse at 50% 80%, rgba(200, 60, 160, 0.25) 0%, transparent 55%),
       radial-gradient(ellipse at 80% 70%, rgba(30, 180, 200, 0.18) 0%, transparent 45%);
     mix-blend-mode: screen;
-    z-index: 3;
+    z-index: 4;
     will-change: transform;
   }
   .hero-particles {
     position: absolute;
     inset: 0;
-    z-index: 4;
+    z-index: 5;
     will-change: transform;
   }
   .particle {
@@ -165,76 +183,10 @@
     50% { opacity: 1; transform: scale(1); }
   }
 
-  /* Floating product cutout */
-  .hero-floating {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    will-change: transform;
-    pointer-events: none;
-  }
-  .hero-floating img {
-    height: 55vh;
-    max-height: 520px;
-    width: auto;
-    display: block;
-    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
-    animation: bob 6s ease-in-out infinite;
-  }
-  @keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-
-  /* Rising smoke from the incense tip */
-  .hero-smoke {
-    position: absolute;
-    left: 50%;
-    top: 27vh;
-    width: 0;
-    height: 0;
-    z-index: 5;
-    pointer-events: none;
-    will-change: transform;
-  }
-  .smoke-wisp {
-    position: absolute;
-    left: -11px;
-    bottom: 0;
-    width: 22px;
-    height: 150px;
-    border-radius: 50%;
-    background: linear-gradient(to top, rgba(215, 210, 230, 0.45), rgba(215, 210, 230, 0) 78%);
-    filter: blur(13px);
-    opacity: 0;
-    transform-origin: bottom center;
-    animation: smokeRise 6s ease-out infinite;
-  }
-  .smoke-wisp:nth-child(1) { animation-delay: 0s; }
-  .smoke-wisp:nth-child(2) { animation-delay: 1.5s; left: -6px; width: 18px; animation-name: smokeRiseAlt; }
-  .smoke-wisp:nth-child(3) { animation-delay: 3s; left: -16px; width: 26px; }
-  .smoke-wisp:nth-child(4) { animation-delay: 4.5s; left: -2px; width: 16px; animation-name: smokeRiseAlt; }
-
-  @keyframes smokeRise {
-    0%   { transform: translate(0, 0) scale(0.5); opacity: 0; }
-    12%  { opacity: 0.5; }
-    50%  { transform: translate(24px, -90px) scale(1); opacity: 0.32; }
-    100% { transform: translate(55px, -210px) scale(1.7); opacity: 0; }
-  }
-  @keyframes smokeRiseAlt {
-    0%   { transform: translate(0, 0) scale(0.5); opacity: 0; }
-    12%  { opacity: 0.5; }
-    50%  { transform: translate(-24px, -95px) scale(1); opacity: 0.32; }
-    100% { transform: translate(-58px, -215px) scale(1.7); opacity: 0; }
-  }
-
   /* Hero text overlay */
   .hero-text {
     position: absolute;
-    z-index: 6;
+    z-index: 7;
     bottom: 12%;
     left: 50%;
     transform: translateX(-50%);
@@ -488,9 +440,16 @@
   .cta {
     text-align: center;
     background:
-      linear-gradient(160deg, rgba(43,31,20,0.95) 0%, rgba(61,47,34,0.95) 100%),
-      url('asset/Front.jpg') center/cover no-repeat;
-    background-attachment: fixed;
+      radial-gradient(ellipse at 20% 20%, rgba(120, 80, 200, 0.35) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 30%, rgba(40, 120, 220, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 85%, rgba(200, 60, 160, 0.28) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 75%, rgba(30, 180, 200, 0.2) 0%, transparent 45%),
+      radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.9), transparent 50%),
+      radial-gradient(1px 1px at 45% 60%, rgba(255,255,255,0.6), transparent 50%),
+      radial-gradient(2px 2px at 70% 20%, rgba(190,210,255,0.8), transparent 50%),
+      radial-gradient(1px 1px at 88% 55%, rgba(255,255,255,0.5), transparent 50%),
+      radial-gradient(1.5px 1.5px at 30% 80%, rgba(255,255,255,0.7), transparent 50%),
+      linear-gradient(160deg, #05050f 0%, #0a0a1f 25%, #161238 55%, #05050f 100%);
     color: #f0e4d4;
     padding: 10rem 2rem;
   }
@@ -566,6 +525,9 @@
 <!-- HERO — MULTI-LAYER PARALLAX -->
 <section class="hero" id="hero">
   <div class="hero-bg" data-parallax="0.15"></div>
+  <div class="hero-video">
+    <video src="asset/adh02.mp4" autoplay muted loop playsinline></video>
+  </div>
   <div class="hero-stars" data-parallax="0.25"></div>
   <div class="hero-texture" data-parallax="0.3"></div>
   <div class="hero-particles" data-parallax="0.5">
@@ -573,15 +535,6 @@
     <div class="particle"></div><div class="particle"></div>
     <div class="particle"></div><div class="particle"></div>
     <div class="particle"></div><div class="particle"></div>
-  </div>
-  <div class="hero-floating" data-parallax="0.35">
-    <img src="asset/hero_floating.png" alt="Incense Holder">
-  </div>
-  <div class="hero-smoke" data-parallax="0.35">
-    <div class="smoke-wisp"></div>
-    <div class="smoke-wisp"></div>
-    <div class="smoke-wisp"></div>
-    <div class="smoke-wisp"></div>
   </div>
   <div class="hero-text" data-parallax="0.9">
     <h1>Find Your<br>Stillness</h1>
